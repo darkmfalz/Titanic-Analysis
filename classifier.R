@@ -1,6 +1,9 @@
 setwd("C:/Everything Else/Blackhat/R/Titanic")
-traindata = read.csv("train.csv")
+rawdata = read.csv("train.csv")
 testdata = read.csv("test.csv")
+
+#Clean the gosh-diggity-darn data
+traindata = subset(rawdata, Age!="NA")
 
 #Note to self, include automatic stepwise regression ability
 
@@ -30,3 +33,11 @@ lda.fit
 lda.pred = predict(lda.fit, traindata)
 lda.class = lda.pred$class
 table(lda.class, traindata[["Survived"]])
+
+#3. Quadratic Discriminant Analysis
+qda.fit = qda(Survived~Pclass+Sex+Age+Fare, data = traindata)
+qda.fit
+#Generate confusion matrix
+qda.pred = predict(lda.fit, traindata)
+qda.class = qda.pred$class
+table(qda.class, traindata[["Survived"]])
