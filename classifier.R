@@ -41,6 +41,7 @@ logCV <- function(formula, tempdata, k){
 		glm.pred = rep("0", NROW( data.frame(folds[[i]]) ))
 		glm.pred[glm.probs > .5] = "1"
 		currtable <- table(glm.pred, data.frame( folds[[i]] )[["Survived"]])
+		currtable
 		currerr <- currtable[1,2] + currtable[2,1]
 		err[i] <- currerr/NROW(data.frame(folds[[i]]))
 	}

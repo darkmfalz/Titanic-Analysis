@@ -1,0 +1,127 @@
+The optimal model, agreed upon by both FSS and BSS:
+Survived~Sex+Pclass+Age+SibSp
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.7714  -0.6445  -0.3836   0.6276   2.4585  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  5.600846   0.543441  10.306  < 2e-16 ***
+Sexmale     -2.623483   0.214524 -12.229  < 2e-16 ***
+Pclass      -1.317398   0.140900  -9.350  < 2e-16 ***
+Age         -0.044385   0.008155  -5.442 5.26e-08 ***
+SibSp       -0.376119   0.121080  -3.106  0.00189 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 964.52  on 713  degrees of freedom
+Residual deviance: 636.72  on 709  degrees of freedom
+AIC: 646.72
+
+Variables:
+
+PassengerId
+Survived
+Pclass
+Name
+Sex
+Age
+SibSp
+Parch
+Ticket
+Fare
+Cabin
+Embarked
+
+Forward Stepwise Selection:
+
+Survived~PassengerId:	967.9
+Survived~Pclass:	874.73
+Survived~Sex:		754.7
+Survived~Age:		964.23
+Survived~SibSp:		968.3
+Survived~Parch:		962.38
+Survived~Fare:		905.25
+Survived~Embarked:	941.41
+
+Survived~Sex+PassengerId:		754.87
+Survived~Sex+Pclass:			678.51
+Survived~Sex+Age:			755.96
+Survived~Sex+SibSp:			750.94
+Survived~Sex+Parch:			755.07
+Survived~Sex+Fare:			724.75
+Survived~Sex+Embarked:			737.62
+
+Survived~Sex+Pclass+PassengerId:	679.37
+Survived~Sex+Pclass+Age:		655.29
+Survived~Sex+Pclass+SibSp:		677.44
+Survived~Sex+Pclass+Parch:		680
+Survived~Sex+Pclass+Fare:		679.75
+Survived~Sex+Pclass+Embarked:		678.58
+
+Survived~Sex+Pclass+Age+PassengerId:	655.91
+Survived~Sex+Pclass+Age+SibSp:		646.72	<--	OPTIMAL MODEL
+Survived~Sex+Pclass+Age+Parch:		655.6
+Survived~Sex+Pclass+Age+Fare:		657.23
+Survived~Sex+Pclass+Age+Embarked:	656.75
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId:	647.84
+Survived~Sex+Pclass+Age+SibSp+Parch:		648.62
+Survived~Sex+Pclass+Age+SibSp+Fare:		648.07
+Survived~Sex+Pclass+Age+SibSp+Embarked:		648.82
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch:	649.7
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Fare:		649.19
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Embarked:	650.02
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Fare:		650.86
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Embarked:	651.83
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Fare+Embarked:	653.48
+
+
+Backward Stepwise Selection:
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Fare:		650.86
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Embarked:	651.83
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Fare+Embarked:	651.79
+Survived~Sex+Pclass+Age+SibSp+Parch+Fare+Embarked:		652.34
+Survived~Sex+Pclass+Age+PassengerId+Parch+Fare+Embarked:	659.54
+Survived~Sex+Pclass+SibSp+PassengerId+Parch+Fare+Embarked:	691.91
+Survived~Sex+Age+SibSp+PassengerId+Parch+Fare+Embarked:		705.17
+Survived~Pclass+Age+SibSp+PassengerId+Parch+Fare+Embarked:	828.22
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch:	649.7
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Fare:		649.19
+Survived~Sex+Pclass+Age+SibSp+Parch+Fare:		649.81
+Survived~Sex+Pclass+Age+PassengerId+Parch+Fare:		657.71
+Survived~Sex+Pclass+SibSp+PassengerId+Parch+Fare:	680.71
+Survived~Sex+Age+SibSp+PassengerId+Parch+Fare:		707.61
+Survived~Pclass+Age+SibSp+PassengerId+Parch+Fare:	828.96
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId:	647.84
+Survived~Sex+Pclass+Age+SibSp+Fare:		648.08
+Survived~Sex+Pclass+Age+PassengerId+Fare:	657.85
+Survived~Sex+Pclass+SibSp+PassengerId+Fare:	679
+Survived~Sex+Age+SibSp+PassengerId+Fare:	709.84
+Survived~Pclass+Age+SibSp+PassengerId+Fare:	831.78
+
+Survived~Sex+Pclass+Age+SibSp:		646.72	<--	OPTIMAL MODEL
+Survived~Sex+Pclass+Age+PassengerId:	655.91
+Survived~Sex+Pclass+SibSp+PassengerId:	678.55
+Survived~Sex+Age+SibSp+PassengerId:	750.87
+Survived~Pclass+Age+SibSp+PassengerId:	833.54
+
+Survived~Sex+Pclass+Age:	655.29
+Survived~Sex+Pclass+SibSp:	677.44
+Survived~Sex+Age+SibSp:		750.29
+Survived~Pclass+Age+SibSp:	832.84
+
+Survived~Sex+Pclass:	678.51
+Survived~Sex+Age:	755.96
+Survived~Pclass+Age:	833.43
+
+Survived~Sex:		754.7
+Survived~Pclass:	874.73
