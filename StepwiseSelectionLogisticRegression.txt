@@ -20,6 +20,12 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 Residual deviance: 636.72  on 709  degrees of freedom
 AIC: 646.72
 
+Confusion Matrix on Training Data:
+
+glm.pred   0   1
+       0 365  78
+       1  59 212
+
 Rate of misclassification: 0.1975 with variance 0.0006363, as determined by 10-Fold Cross-Validation
 
 Variables:
