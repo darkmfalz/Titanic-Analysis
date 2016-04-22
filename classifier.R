@@ -13,15 +13,15 @@ logFit <- function(formula, traindata){
 	return(glm.fit)
 }
 
-logConfusion <- function(fit){
+logConfusion <- function(fit, threshold){
 	#Generate confusion matrix
 	glm.probs = predict(glm.fit, traindata, type="response")
 	glm.pred = rep("0", NROW(traindata))
-	glm.pred[glm.probs > .5] = "1"
+	glm.pred[glm.probs > threshold] = "1"
 	return(table(glm.pred, traindata[["Survived"]]))
 }
 
-logCV <- function(formula, tempdata, k){
+logCV <- function(formula, tempdata, k, threshold){
 	#set.seed(17)
 	folds <- split(tempdata, sample(rep(1:k, NROW(tempdata)/k)))
 	err <- vector(mode = "numeric", length = k)
@@ -39,7 +39,7 @@ logCV <- function(formula, tempdata, k){
 		#Get the confusion matrix
 		glm.probs = predict(glm.fit, data.frame( folds[[i]] ), type="response")
 		glm.pred = rep("0", NROW( data.frame(folds[[i]]) ))
-		glm.pred[glm.probs > .5] = "1"
+		glm.pred[glm.probs > threshold] = "1"
 		currtable <- table(glm.pred, data.frame( folds[[i]] )[["Survived"]])
 		currtable
 		currerr <- currtable[1,2] + currtable[2,1]
@@ -49,6 +49,28 @@ logCV <- function(formula, tempdata, k){
 	summary[1] <- mean(err)
 	summary[2] <- var(err)
 	return(summary)
+}
+
+logThreshold <- function(formula, tempdata, k){
+	tries <- 20
+	threshold <- 0.5
+	for(i in 1:20){
+		val <- 0
+		valDeltaUpper <- 0
+		valDeltaLower <- 0
+		for(j in 1:10){
+			val <- val + logCV(formula, tempdata, k, threshold)[1]
+			valDeltaUpper <- valDeltaUpper + logCV(formula, tempdata, k, threshold + 0.01)[1]
+			valDeltaLower <- valDeltaLower + logCV(formula, tempdata, k, threshold - 0.01)[1]
+		}
+		val <- val / 10
+		valDeltaUpper <- valDeltaUpper / 10
+		valDeltaLower <- valDeltaLower / 10
+		print(threshold)
+		print(val)
+		threshold <- threshold - ((valDeltaUpper - valDeltaLower)/0.02)/(((valDeltaUpper - val)/0.01 - (val - valDeltaLower)/0.01)/0.01)
+	}
+	return(threshold)
 }
 
 #2. Linear Discriminant Analysis
