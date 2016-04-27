@@ -1,0 +1,236 @@
+Threshold = 0.57
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.1775  -0.6495  -0.3761   0.5569   2.4656  
+
+Coefficients:
+               Estimate  Std. Error z value Pr(>|z|)    
+(Intercept)   7.036e+00   7.507e-01   9.373  < 2e-16 ***
+Sexmale      -2.621e+00   2.136e-01 -12.266  < 2e-16 ***
+Pclass       -1.195e+00   1.335e-01  -8.946  < 2e-16 ***
+log(Age)     -9.548e-01   1.660e-01  -5.753 8.76e-09 ***
+exp(SibSp)   -5.080e-02   1.540e-02  -3.298 0.000974 ***
+exp(Fare)    4.769e-222   0.000e+00     Inf  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 964.52  on 713  degrees of freedom
+Residual deviance: 619.03  on 708  degrees of freedom
+AIC: 631.03
+
+Number of Fisher Scoring iterations: 14
+
+
+
+
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.1443  -0.6352  -0.3840   0.5598   2.4816  
+
+Coefficients:
+               Estimate  Std. Error z value Pr(>|z|)    
+(Intercept)   6.959e+00   7.427e-01   9.370  < 2e-16 ***
+Sexmale      -2.668e+00   2.163e-01 -12.332  < 2e-16 ***
+Pclass       -1.168e+00   1.340e-01  -8.715  < 2e-16 ***
+log(Age)     -9.276e-01   1.643e-01  -5.646 1.65e-08 ***
+exp(SibSp)   -4.989e-02   1.533e-02  -3.255  0.00113 ** 
+exp(Fare)    4.771e-222   0.000e+00     Inf  < 2e-16 ***
+exp(Parch)   -1.037e-02   7.841e-03  -1.322  0.18620    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 964.52  on 713  degrees of freedom
+Residual deviance: 616.08  on 707  degrees of freedom
+AIC: 630.08
+
+Number of Fisher Scoring iterations: 14
+
+Variables:
+
+PassengerId		Q
+Survived		C
+Pclass			Q
+Name			C
+Sex			C
+Age			Q
+SibSp			Q
+Parch			Q
+Ticket			C
+Fare			Q
+Cabin			C
+Embarked		C
+
+Re-do:
+Forward Stepwise Selection:
+
+Survived~PassengerId:		967.9
+Survived~I(PassengerId^5):	968.5
+Survived~I(PassengerId^0.2):	968.5
+Survived~log(PassengerId):	968.01
+Survived~Pclass:		874.73
+Survived~I(Pclass^5):		879.78
+Survived~I(Pclass^0.2):		877.86
+Survived~exp(Pclass):		875.4
+Survived~log(Pclass):		878.96
+Survived~Sex:			754.7
+Survived~Age:			964.23
+Survived~I(Age^5):		966.82
+Survived~I(Age^0.2):		958.81
+Survived~exp(Age):		966.73
+Survived~log(Age):		958.97
+Survived~SibSp:			968.3
+Survived~I(SibSp^5):		958.14
+Survived~I(SibSp^0.2):		965.05
+Survived~exp(SibSp):		960.07
+Survived~Parch:			962.38
+Survived~I(Parch^5):		965.9
+Survived~I(Parch^0.2):		951.19
+Survived~exp(Parch):		967.12
+Survived~Fare:			905.25
+Survived~I(Fare^5):		956.82
+Survived~I(Fare^0.2):		885.11
+Survived~exp(Fare):		963.09
+Survived~Embarked:		941.41
+
+Survived~Sex+PassengerId:		754.87
+Survived~Sex+I(PassengerId^5):		756.7
+Survived~Sex+I(PassengerId^0.2):	753.87
+Survived~Sex+log(PassengerId):		754.1
+Survived~Sex+Pclass:			678.51
+Survived~Sex+I(Pclass^5):		686.28
+Survived~Sex+I(Pclass^0.2):		679.98
+Survived~Sex+exp(Pclass):		681.44
+Survived~Sex+log(Pclass):		680.62
+Survived~Sex+Age:			755.96
+Survived~Sex+I(Age^5):			756.7
+Survived~Sex+I(Age^0.2):		751.63
+Survived~Sex+exp(Age):			753.54
+Survived~Sex+log(Age):			749.33
+Survived~Sex+SibSp:			750.94
+Survived~Sex+I(SibSp^5):		743.85
+Survived~Sex+I(SibSp^0.2):		756.59
+Survived~Sex+exp(SibSp):		743.88
+Survived~Sex+Parch:			755.07
+Survived~Sex+I(Parch^5):		745.98
+Survived~Sex+I(Parch^0.2):		756.25
+Survived~Sex+exp(Parch):		746.58
+Survived~Sex+Fare:			724.75
+Survived~Sex+I(Fare^5):			748.43
+Survived~Sex+I(Fare^0.2):		716.02
+Survived~Sex+exp(Fare):			749.77
+Survived~Sex+log(Fare+1):		714.04
+Survived~Sex+Embarked:			737.62
+
+Survived~Sex+Pclass+PassengerId:	679.37
+Survived~Sex+Pclass+I(PassengerId^5):	680.46
+Survived~Sex+Pclass+I(PassengerId^0.2):	678.96
+Survived~Sex+Pclass+Age:		655.29
+Survived~Sex+Pclass+I(Age^5):		672.76
+Survived~Sex+Pclass+I(Age^0.2):		649.34
+Survived~Sex+Pclass+log(Age):		648.81
+Survived~Sex+Pclass+SibSp:		677.44
+Survived~Sex+Pclass+I(SibSp^5):		675.53
+Survived~Sex+Pclass+I(SibSp^0.2):	680.09
+Survived~Sex+Pclass+Parch:		680
+Survived~Sex+Pclass+I(Parch^5):		674.78
+Survived~Sex+Pclass+I(Parch^0.2):	679.74
+Survived~Sex+Pclass+Fare:		679.75
+Survived~Sex+Pclass+I(Fare^5):		677.38
+Survived~Sex+Pclass+I(Fare^0.2):	680.2
+Survived~Sex+Pclass+Embarked:		678.58
+
+Survived~Sex+Pclass+I(Age^0.2)+PassengerId:		650.02
+Survived~Sex+Pclass+I(Age^0.2)+I(PassengerId^5):	651.34
+Survived~Sex+Pclass+I(Age^0.2)+I(PassengerId^0.2):	649.34
+Survived~Sex+Pclass+I(Age^0.2)+SibSp:			635
+Survived~Sex+Pclass+I(Age^0.2)+I(SibSp^5):		635.81
+Survived~Sex+Pclass+I(Age^0.2)+I(SibSp^0.2):		646.23
+Survived~Sex+Pclass+I(Age^0.2)+Parch:			647.31
+Survived~Sex+Pclass+I(Age^0.2)+I(Parch^5):		648.56
+Survived~Sex+Pclass+I(Age^0.2)+I(Parch^0.2):		649.33
+Survived~Sex+Pclass+I(Age^0.2)+Fare:			651.28
+Survived~Sex+Pclass+I(Age^0.2)+I(Fare^5):		648.36
+Survived~Sex+Pclass+I(Age^0.2)+I(Fare^0.2):		651.07
+Survived~Sex+Pclass+I(Age^0.2)+Embarked:		651.13
+Survived~Sex+Pclass+log(Age)+SibSp:			633.96
+Survived~Sex+Pclass+log(Age)+I(SibSp^5):		634.82
+Survived~Sex+Pclass+log(Age)+I(SibSp^0.2):		645.5
+Survived~Sex+Pclass+log(Age)+exp(SibSp):		632.44
+
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+PassengerId:		633.8
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(PassengerId^5):	634.35
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(PassengerId^0.2):	633.29
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+log(PassengerId):	633.37
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+Parch:			632.88	
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(Parch^5):		631.52
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(Parch^0.2):		634.08
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Parch):		631.52	
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+Fare:			633.72
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(Fare^5):		631.3
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+I(Fare^0.2):		634.16
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare):		631.03
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+Embarked:		635.51
+
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+PassengerId:		632.53
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+I(PassengerId^5):	632.9
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+I(PassengerId^0.2):	632.04
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+log(PassengerId):	632.11
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+Parch:		631.39
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+I(Parch^5):		630.1
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+I(Parch^0.2):		632.57
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+exp(Parch):		630.08
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+Embarked:		634.63
+
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+exp(Parch)+PassengerId:	631.42
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+exp(Parch)+I(PassengerId^5):	632
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+exp(Parch)+I(PassengerId^0.2):630.95
+Survived~Sex+Pclass+log(Age)+exp(SibSp)+exp(Fare)+exp(Parch)+log(PassengerId):	631.04
+
+Backward Stepwise Selection:
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Fare:		650.86
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch+Embarked:	651.83
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Fare+Embarked:	651.79
+Survived~Sex+Pclass+Age+SibSp+Parch+Fare+Embarked:		652.34
+Survived~Sex+Pclass+Age+PassengerId+Parch+Fare+Embarked:	659.54
+Survived~Sex+Pclass+SibSp+PassengerId+Parch+Fare+Embarked:	691.91
+Survived~Sex+Age+SibSp+PassengerId+Parch+Fare+Embarked:		705.17
+Survived~Pclass+Age+SibSp+PassengerId+Parch+Fare+Embarked:	828.22
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Parch:	649.7
+Survived~Sex+Pclass+Age+SibSp+PassengerId+Fare:		649.19
+Survived~Sex+Pclass+Age+SibSp+Parch+Fare:		649.81
+Survived~Sex+Pclass+Age+PassengerId+Parch+Fare:		657.71
+Survived~Sex+Pclass+SibSp+PassengerId+Parch+Fare:	680.71
+Survived~Sex+Age+SibSp+PassengerId+Parch+Fare:		707.61
+Survived~Pclass+Age+SibSp+PassengerId+Parch+Fare:	828.96
+
+Survived~Sex+Pclass+Age+SibSp+PassengerId:	647.84
+Survived~Sex+Pclass+Age+SibSp+Fare:		648.08
+Survived~Sex+Pclass+Age+PassengerId+Fare:	657.85
+Survived~Sex+Pclass+SibSp+PassengerId+Fare:	679
+Survived~Sex+Age+SibSp+PassengerId+Fare:	709.84
+Survived~Pclass+Age+SibSp+PassengerId+Fare:	831.78
+
+Survived~Sex+Pclass+Age+SibSp:		646.72	<--	OPTIMAL MODEL
+Survived~Sex+Pclass+Age+PassengerId:	655.91
+Survived~Sex+Pclass+SibSp+PassengerId:	678.55
+Survived~Sex+Age+SibSp+PassengerId:	750.87
+Survived~Pclass+Age+SibSp+PassengerId:	833.54
+
+Survived~Sex+Pclass+Age:	655.29
+Survived~Sex+Pclass+SibSp:	677.44
+Survived~Sex+Age+SibSp:		750.29
+Survived~Pclass+Age+SibSp:	832.84
+
+Survived~Sex+Pclass:	678.51
+Survived~Sex+Age:	755.96
+Survived~Pclass+Age:	833.43
+
+Survived~Sex:		754.7
+Survived~Pclass:	874.73

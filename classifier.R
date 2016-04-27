@@ -21,7 +21,7 @@ logConfusion <- function(fit, threshold){
 	return(table(glm.pred, traindata[["Survived"]]))
 }
 
-logCV <- function(formula, tempdata, k, threshold){
+logCV <- function(formula, tempdata, k, threshold = 0.5){
 	#set.seed(17)
 	folds <- split(tempdata, sample(rep(1:k, NROW(tempdata)/k)))
 	err <- vector(mode = "numeric", length = k)
@@ -147,6 +147,51 @@ qdaCV <- function(formula, tempdata, k){
 		qda.pred = predict(qda.fit, data.frame(folds[[i]]))
 		qda.class = qda.pred$class
 		currtable <- table(qda.class, data.frame( folds[[i]] )[["Survived"]])
+		currerr <- currtable[1,2] + currtable[2,1]
+		err[i] <- currerr/NROW(data.frame(folds[[i]]))
+	}
+	summary <- vector(mode = "numeric", length = 2)
+	summary[1] <- mean(err)
+	summary[2] <- var(err)
+	return(summary)
+}
+
+#4. K-Nearest Neighbors
+
+#Alter variables inside method
+knnFit(tempdata, k){
+
+	folds <- split(tempdata, NROW(tempdata)/2)
+	train.X = cbind(data.frame(folds[[1]])[["Sex"]], data.frame(folds[[1]])[["Pclass"]], data.frame(folds[[1]])[["Age"]], data.frame(folds[[1]])[["SibSp"]])
+	test.X = cbind(data.frame(folds[[2]])[["Sex"]], data.frame(folds[[2]])[["Pclass"]], data.frame(folds[[2]])[["Age"]], data.frame(folds[[2]])[["SibSp"]])
+	train.Survived = data.frame(folds[[1]])[["Survived"]]
+	knn.pred = knn(train.X, test.X, train.Survived, k)
+	table(knn.pred, data.frame(folds[[2]])[["Survived"]])
+
+}
+
+#5. Boosting Classification Trees
+boostCV <- function(tempdata, k, threshold = 0){
+	library(gbm)
+	folds <- split(tempdata, sample(rep(1:k, NROW(tempdata)/k)))
+	err <- vector(mode = "numeric", length = k)
+	for(i in 1:k){
+		#Make the dataset for the current logistic regression
+		int <- ifelse(i != 1, 1, 2)
+		currdata <- data.frame(folds[[int]])
+		for(j in 1:k){
+			if((j != i) && (j != int)){
+				currdata <- rbind(currdata, data.frame( folds[[j]] ))
+			}
+		}
+		#Fit the model to the data
+		boost.fit = gbm(Survived~., data = currdata, distribution="bernoulli", n.trees=5000, interaction.depth=4)
+		#Get the confusion matrix
+		boost.probs = predict(boost.fit, data.frame( folds[[i]] ), n.trees=5000)
+		boost.pred = rep("0", NROW( data.frame(folds[[i]]) ))
+		boost.pred[boost.probs > threshold] = "1"
+		currtable <- table(boost.pred, data.frame( folds[[i]] )[["Survived"]])
+		currtable
 		currerr <- currtable[1,2] + currtable[2,1]
 		err[i] <- currerr/NROW(data.frame(folds[[i]]))
 	}
